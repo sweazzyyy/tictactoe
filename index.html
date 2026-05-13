@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe — Крестики-Нолики</title>
+  <meta name="description" content="Красивая игра Крестики-Нолики с возможностью играть против умного бота.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <main class="container">
+    <!-- Title -->
+    <h1 class="title">
+      <span class="title-x">X</span>
+      <span class="title-divider">vs</span>
+      <span class="title-o">O</span>
+    </h1>
+
+    <!-- Scoreboard -->
+    <div class="scoreboard" id="scoreboard">
+      <div class="score-card score-x">
+        <span class="score-label">X (Вы)</span>
+        <span class="score-value" id="score-x">0</span>
+      </div>
+      <div class="score-card score-draw">
+        <span class="score-label">Ничья</span>
+        <span class="score-value" id="score-draw">0</span>
+      </div>
+      <div class="score-card score-o">
+        <span class="score-label">O (Бот)</span>
+        <span class="score-value" id="score-o">0</span>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="status-bar" id="status-bar">
+      <span id="status-text">Выберите сложность</span>
+    </div>
+
+    <!-- Difficulty selector -->
+    <div class="difficulty-selector" id="difficulty-selector">
+      <button class="diff-btn" data-diff="easy" id="btn-easy">
+        <span class="diff-icon">😊</span>
+        <span class="diff-name">Лёгкий</span>
+      </button>
+      <button class="diff-btn active" data-diff="medium" id="btn-medium">
+        <span class="diff-icon">🤔</span>
+        <span class="diff-name">Средний</span>
+      </button>
+      <button class="diff-btn" data-diff="hard" id="btn-hard">
+        <span class="diff-icon">🤖</span>
+        <span class="diff-name">Сложный</span>
+      </button>
+    </div>
+
+    <!-- Game Board -->
+    <div class="board-wrapper">
+      <div class="board" id="board">
+        <div class="cell" data-index="0" id="cell-0"></div>
+        <div class="cell" data-index="1" id="cell-1"></div>
+        <div class="cell" data-index="2" id="cell-2"></div>
+        <div class="cell" data-index="3" id="cell-3"></div>
+        <div class="cell" data-index="4" id="cell-4"></div>
+        <div class="cell" data-index="5" id="cell-5"></div>
+        <div class="cell" data-index="6" id="cell-6"></div>
+        <div class="cell" data-index="7" id="cell-7"></div>
+        <div class="cell" data-index="8" id="cell-8"></div>
+      </div>
+      <!-- Win line overlay -->
+      <svg class="win-line-svg" id="win-line-svg" viewBox="0 0 300 300">
+        <line id="win-line" x1="0" y1="0" x2="0" y2="0" />
+      </svg>
+    </div>
+
+    <!-- Restart button -->
+    <button class="restart-btn" id="restart-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 4 23 10 17 10"></polyline>
+        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+      </svg>
+      Новая игра
+    </button>
+
+    <!-- Result overlay -->
+    <div class="result-overlay" id="result-overlay">
+      <div class="result-card" id="result-card">
+        <div class="result-emoji" id="result-emoji">🎉</div>
+        <h2 class="result-title" id="result-title">Победа!</h2>
+        <p class="result-desc" id="result-desc">Вы победили бота!</p>
+        <button class="result-btn" id="result-btn">Играть снова</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Крестики-Нолики &middot; 2026</p>
+  </footer>
+
+  <script src="game.js"></script>
+</body>
+</html>
